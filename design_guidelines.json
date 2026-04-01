@@ -1,0 +1,116 @@
+{
+  "project_identity": {
+    "brand_name": "SEVYN",
+    "theme": "dark",
+    "archetype": "Swiss & High-Contrast (Adapted for Gothic Brutalism)",
+    "domain": "E-commerce (Fashion / Streetwear)",
+    "emotional_tone": "Edgy, premium, mysterious, sharp, metallic, minimalist",
+    "visual_mood": "High contrast, stark minimalism, sharp edges, metallic/chrome textures"
+  },
+  "color_system": {
+    "background": "#000000",
+    "surface": "#0A0A0A",
+    "border": "#262626",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A3A3A3",
+    "primary": "#FFFFFF",
+    "primary_foreground": "#000000",
+    "accent": "#D4D4D4",
+    "danger": "#FF3B30",
+    "notes": "Strictly black, white, and grey palette. No saturated colors. Pure black background to let the chrome tribal elements and product photography pop."
+  },
+  "typography": {
+    "headings": {
+      "family": "Cabinet Grotesk, sans-serif",
+      "weights": ["800", "900"],
+      "styles": "Uppercase, tracking-tighter, aggressive scale"
+    },
+    "body": {
+      "family": "Satoshi, sans-serif",
+      "weights": ["400", "500"],
+      "styles": "tracking-normal, pure legibility"
+    },
+    "monospace": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400"],
+      "styles": "Uppercase, tracking-widest, used for labels, SKUs, and small overlines"
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl+ uppercase font-black tracking-tighter",
+      "h2": "text-3xl sm:text-4xl uppercase font-black tracking-tight",
+      "h3": "text-xl sm:text-2xl uppercase font-bold tracking-tight",
+      "body": "text-base font-normal",
+      "label": "text-xs uppercase tracking-[0.2em] font-mono text-gray-400"
+    }
+  },
+  "spacing_and_layout": {
+    "grid_system": "Bento Grid for collections (Tetris mode), stark architectural grid for products.",
+    "border_radius": "rounded-none (sharp edges only)",
+    "padding": "Generous spacing. p-8, p-12, p-16 for containers to create emptiness and focus.",
+    "alignment": "Optical alignment, asymmetrical balance. Left-align most text for brutalist feel."
+  },
+  "surface_strategies": {
+    "cards": "Flat background (#0A0A0A), 1px solid border (#262626), 0px border radius, no box-shadow.",
+    "header": "Solid pure black background or heavy glassmorphism (bg-black/80 backdrop-blur-xl) with a 1px bottom border.",
+    "buttons": "Invert style. Primary CTA is pure white background with black text, no border radius. Hover: black background, white text, 1px white border.",
+    "hover_effects": "High contrast flips. -translate-y-1, invert colors."
+  },
+  "components": {
+    "buttons": "Sharp edges, dense padding (px-8 py-3). Font mono for button text. Use data-testid on all interactive elements.",
+    "inputs": "Shadcn input overridden with rounded-none, border-b only (or full 1px border), pure black bg, white text.",
+    "navigation": "Minimalist header, visible links on desktop, pure white logo.",
+    "icons": "lucide-react with thin stroke-width (1.5 or 1) for a precise, sharp look."
+  },
+  "media": {
+    "images": [
+      {
+        "category": "logo_main",
+        "url": "https://customer-assets.emergentagent.com/job_d516ffd1-874f-4457-90ac-2910d6277886/artifacts/hqumdoqf_a1c68d89-a2d2-4d0b-a443-d396cf7473d0%20%281%29.png",
+        "description": "SEVYN chrome metallic logo. Use in header and footer."
+      },
+      {
+        "category": "design_element",
+        "url": "https://customer-assets.emergentagent.com/job_d516ffd1-874f-4457-90ac-2910d6277886/artifacts/g5b4v8cx_6a901dca-b758-45fa-9146-bc00943e433d.png",
+        "description": "Gothic tribal chrome design element. Use as floating background asset, hero overlay, or section dividers."
+      },
+      {
+        "category": "product_hoodie_1",
+        "url": "https://images.unsplash.com/photo-1647540977003-9a9e6f3b5fb9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxkYXJrJTIwZmFzaGlvbiUyMGhvb2RpZXxlbnwwfHx8fDE3NzUwODI3ODh8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Dark fashion hoodie product shot"
+      },
+      {
+        "category": "product_hoodie_2",
+        "url": "https://images.unsplash.com/photo-1647797819874-f51a8a8fc5c0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwzfHxkYXJrJTIwZmFzaGlvbiUyMGhvb2RpZXxlbnwwfHx8fDE3NzUwODI3ODh8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Dark fashion hoodie product shot alternative"
+      },
+      {
+        "category": "product_portrait",
+        "url": "https://images.pexels.com/photos/3894534/pexels-photo-3894534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Fashion portrait in dark hoodie"
+      },
+      {
+        "category": "hero_background_texture",
+        "url": "https://images.unsplash.com/photo-1760978632114-0939f0d60045?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwzfHxkYXJrJTIwYWJzdHJhY3QlMjBtZXRhbGxpYyUyMHRleHR1cmV8ZW58MHx8fHwxNzc1MDgyNzg4fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract metallic wave pattern, use as hero section background with heavy black overlay or blend mode."
+      }
+    ],
+    "guidelines": "NEVER use placeholders. Use only the provided URLs. Overlay images with bg-black/40 if text needs to go over them. Use mix-blend-screen for the tribal design element if needed to make it pop over pure black."
+  },
+  "motion_and_interactions": {
+    "hover": "High contrast transitions. Immediate impact, ease-out-expo.",
+    "page_transitions": "Fade to black. Smooth scrolling using Lenis.",
+    "accessibility": "Respect prefers-reduced-motion."
+  },
+  "instructions_to_main_agent": [
+    "Install and use `lucide-react` for icons.",
+    "Use Shadcn UI for forms, cart, auth, but strip border-radius to 0 (rounded-none) and customize to strict black/white/grey.",
+    "Implement PayPal integration as required by user for the checkout split.",
+    "Use the provided SEVYN logo URL in the Navigation Bar and Footer.",
+    "Integrate the 'Gothic tribal chrome' design element URL as decorative background graphics in the Hero section and throughout the page.",
+    "Use JetBrains Mono for SKUs, Prices, and Labels. Use Cabinet Grotesk for massive Impact Headings.",
+    "Create a responsive 'Bento Grid' or 'Editorial Asymmetric' layout for the product listing page.",
+    "Ensure the entire app is STRICTLY dark mode. Pure black (#000000) background.",
+    "Do NOT use tailwind colors like blue, red, teal, etc., except for maybe a tiny danger red (#FF3B30) if absolutely needed for errors, but preferably stick to white/grey/black.",
+    "Every button and key interactive element MUST have a descriptive `data-testid`."
+  ]
+}
