@@ -672,16 +672,16 @@ const ProductDetail = () => {
               {cartLoading ? "Adding..." : !product.in_stock ? "Out of Stock" : "Add to Cart"}
             </button>
 
-            {/* TikTok Link */}
-            {product.tiktok_link && (
+            {/* Amazon Link */}
+            {product.amazon_link && (
               <a 
-                href={product.tiktok_link}
+                href={product.amazon_link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 text-xs font-mono uppercase tracking-widest text-gray-500 hover:text-white flex items-center gap-2 justify-center"
-                data-testid="tiktok-link"
+                data-testid="amazon-link"
               >
-                View on TikTok <ExternalLink className="w-3 h-3" />
+                View on Amazon <ExternalLink className="w-3 h-3" />
               </a>
             )}
           </div>
@@ -1526,8 +1526,8 @@ const AdminProducts = ({ products, onUpdate }) => {
     name: "",
     description: "",
     price: "",
-    tiktok_cost: "",
-    tiktok_link: "",
+    amazon_cost: "",
+    amazon_link: "",
     images: "",
     category: "",
     sizes: "",
@@ -1539,8 +1539,8 @@ const AdminProducts = ({ products, onUpdate }) => {
       name: "",
       description: "",
       price: "",
-      tiktok_cost: "",
-      tiktok_link: "",
+      amazon_cost: "",
+      amazon_link: "",
       images: "",
       category: "",
       sizes: "",
@@ -1555,8 +1555,8 @@ const AdminProducts = ({ products, onUpdate }) => {
       name: product.name,
       description: product.description,
       price: product.price.toString(),
-      tiktok_cost: product.tiktok_cost.toString(),
-      tiktok_link: product.tiktok_link,
+      amazon_cost: product.amazon_cost.toString(),
+      amazon_link: product.amazon_link,
       images: product.images.join(", "),
       category: product.category,
       sizes: product.sizes.join(", "),
@@ -1571,8 +1571,8 @@ const AdminProducts = ({ products, onUpdate }) => {
       name: formData.name,
       description: formData.description,
       price: parseFloat(formData.price),
-      tiktok_cost: parseFloat(formData.tiktok_cost),
-      tiktok_link: formData.tiktok_link,
+      amazon_cost: parseFloat(formData.amazon_cost),
+      amazon_link: formData.amazon_link,
       images: formData.images.split(",").map(s => s.trim()).filter(Boolean),
       category: formData.category,
       sizes: formData.sizes.split(",").map(s => s.trim()).filter(Boolean),
@@ -1653,26 +1653,26 @@ const AdminProducts = ({ products, onUpdate }) => {
             />
           </div>
           <div>
-            <label className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">TikTok Cost ($)</label>
+            <label className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">Amazon Cost ($)</label>
             <input
               type="number"
               step="0.01"
-              value={formData.tiktok_cost}
-              onChange={(e) => setFormData({ ...formData, tiktok_cost: e.target.value })}
+              value={formData.amazon_cost}
+              onChange={(e) => setFormData({ ...formData, amazon_cost: e.target.value })}
               className="w-full px-4 py-2 bg-black border border-[#262626]"
               required
-              data-testid="product-tiktok-cost-input"
+              data-testid="product-amazon-cost-input"
             />
           </div>
           <div className="md:col-span-2">
-            <label className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">TikTok Link</label>
+            <label className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">Amazon Link</label>
             <input
               type="url"
-              value={formData.tiktok_link}
-              onChange={(e) => setFormData({ ...formData, tiktok_link: e.target.value })}
+              value={formData.amazon_link}
+              onChange={(e) => setFormData({ ...formData, amazon_link: e.target.value })}
               className="w-full px-4 py-2 bg-black border border-[#262626]"
               required
-              data-testid="product-tiktok-link-input"
+              data-testid="product-amazon-link-input"
             />
           </div>
           <div className="md:col-span-2">
@@ -1733,7 +1733,7 @@ const AdminProducts = ({ products, onUpdate }) => {
               <th>Name</th>
               <th>Category</th>
               <th>Price</th>
-              <th>TikTok Cost</th>
+              <th>Amazon Cost</th>
               <th>Profit</th>
               <th>Actions</th>
             </tr>
@@ -1753,8 +1753,8 @@ const AdminProducts = ({ products, onUpdate }) => {
                 <td className="font-bold">{product.name}</td>
                 <td className="text-gray-400">{product.category}</td>
                 <td className="font-mono">${product.price.toFixed(2)}</td>
-                <td className="font-mono text-gray-400">${product.tiktok_cost.toFixed(2)}</td>
-                <td className="font-mono text-green-400">${(product.price - product.tiktok_cost).toFixed(2)}</td>
+                <td className="font-mono text-gray-400">${product.amazon_cost.toFixed(2)}</td>
+                <td className="font-mono text-green-400">${(product.price - product.amazon_cost).toFixed(2)}</td>
                 <td>
                   <div className="flex gap-2">
                     <button

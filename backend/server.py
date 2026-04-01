@@ -57,8 +57,8 @@ class ProductCreate(BaseModel):
     name: str
     description: str
     price: float  # Selling price
-    tiktok_cost: float  # TikTok product cost
-    tiktok_link: str
+    amazon_cost: float  # Amazon product cost
+    amazon_link: str
     images: List[str]
     category: str
     sizes: List[str] = []
@@ -68,8 +68,8 @@ class ProductUpdate(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
     price: Optional[float] = None
-    tiktok_cost: Optional[float] = None
-    tiktok_link: Optional[str] = None
+    amazon_cost: Optional[float] = None
+    amazon_link: Optional[str] = None
     images: Optional[List[str]] = None
     category: Optional[str] = None
     sizes: Optional[List[str]] = None
@@ -80,8 +80,8 @@ class ProductResponse(BaseModel):
     name: str
     description: str
     price: float
-    tiktok_cost: float
-    tiktok_link: str
+    amazon_cost: float
+    amazon_link: str
     images: List[str]
     category: str
     sizes: List[str]
@@ -257,8 +257,8 @@ async def get_products(category: Optional[str] = None, search: Optional[str] = N
             name=p["name"],
             description=p["description"],
             price=p["price"],
-            tiktok_cost=p.get("tiktok_cost", 0),
-            tiktok_link=p.get("tiktok_link", ""),
+            amazon_cost=p.get("amazon_cost", p.get("tiktok_cost", 0)),
+            amazon_link=p.get("amazon_link", p.get("tiktok_link", "")),
             images=p.get("images", []),
             category=p.get("category", ""),
             sizes=p.get("sizes", []),
@@ -283,8 +283,8 @@ async def get_product(product_id: str):
         name=product["name"],
         description=product["description"],
         price=product["price"],
-        tiktok_cost=product.get("tiktok_cost", 0),
-        tiktok_link=product.get("tiktok_link", ""),
+        amazon_cost=product.get("amazon_cost", product.get("tiktok_cost", 0)),
+        amazon_link=product.get("amazon_link", product.get("tiktok_link", "")),
         images=product.get("images", []),
         category=product.get("category", ""),
         sizes=product.get("sizes", []),
@@ -307,8 +307,8 @@ async def create_product(data: ProductCreate, request: Request):
         "name": data.name,
         "description": data.description,
         "price": data.price,
-        "tiktok_cost": data.tiktok_cost,
-        "tiktok_link": data.tiktok_link,
+        "amazon_cost": data.amazon_cost,
+        "amazon_link": data.amazon_link,
         "images": data.images,
         "category": data.category,
         "sizes": data.sizes,
@@ -322,8 +322,8 @@ async def create_product(data: ProductCreate, request: Request):
         name=data.name,
         description=data.description,
         price=data.price,
-        tiktok_cost=data.tiktok_cost,
-        tiktok_link=data.tiktok_link,
+        amazon_cost=data.amazon_cost,
+        amazon_link=data.amazon_link,
         images=data.images,
         category=data.category,
         sizes=data.sizes,
@@ -356,8 +356,8 @@ async def update_product(product_id: str, data: ProductUpdate, request: Request)
         name=result["name"],
         description=result["description"],
         price=result["price"],
-        tiktok_cost=result.get("tiktok_cost", 0),
-        tiktok_link=result.get("tiktok_link", ""),
+        amazon_cost=result.get("amazon_cost", result.get("tiktok_cost", 0)),
+        amazon_link=result.get("amazon_link", result.get("tiktok_link", "")),
         images=result.get("images", []),
         category=result.get("category", ""),
         sizes=result.get("sizes", []),
@@ -673,7 +673,7 @@ async def get_all_orders(request: Request):
             "user_email": user_email,
             "items": o["items"],
             "total": o["total"],
-            "tiktok_cost": o.get("tiktok_cost", 0),
+            "amazon_cost": o.get("amazon_cost", o.get("tiktok_cost", 0)),
             "profit": o.get("profit", 0),
             "status": o["status"],
             "shipping_address": o["shipping_address"],
