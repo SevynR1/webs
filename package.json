@@ -1,0 +1,11 @@
+{
+  "name": "webs-runner",
+  "version": "1.0.0",
+  "scripts": {
+    "install-all": "cd backend && pip install -r requirements.txt && cd ../frontend && npm install",
+    "start": "concurrently \"cd backend && python server.py\" \"cd frontend && npm start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
